@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Residencial Gramados - Construtora Brasil Imperial</title>
+    <meta name="description" content="Casa incrível no Residencial Gramados, Franca-SP. 220m² terreno, 160m² construída, 3 dormitórios, piscina aquecida, casa automatizada.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: white;
+            padding: 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 2px solid #ffd700;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            max-height: 90px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .back-button {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 90px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .price-tag {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .property-details {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        .main-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            position: relative;
+        }
+
+        .main-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 2px;
+        }
+
+        .location-info {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .location-info h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .spec-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .spec-item i {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .spec-item h4 {
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .features-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .gallery {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            background: #e9ecef;
+            height: 250px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+            border: 2px solid #ffd700;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: #ffd700;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .whatsapp-button:hover {
+            background: linear-gradient(45deg, #ffed4e, #ffd700);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .map-container {
+            background: #e9ecef;
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            margin-top: 2rem;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-top: 2px solid #ffd700;
+        }
+
+        @media (max-width: 768px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Voltar
+            </a>
+            <img src="logo_white.svg" alt="Brasil Imperial" class="logo">
+            <div></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Casa no Residencial Gramados</h1>
+            <p>Localização estratégica, próximo a Av. São Vicente e ao novo Hospital Estadual</p>
+            <div class="price-tag">R$ 930.000</div>
+        </div>
+    </section>
+
+    <!-- Property Details -->
+    <section class="property-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="main-content">
+                    <h2>📐 Detalhes do Imóvel</h2>
+                    
+                    <div class="location-info">
+                        <h3>📍 Localização Premium</h3>
+                        <p>Residencial Gramados, Franca-SP</p>
+                        <p>Excelente localização, próxima à Av. São Vicente e ao novo Hospital Estadual</p>
+                    </div>
+
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <h4>Terreno</h4>
+                            <p>220m² (10x22)</p>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-home"></i>
+                            <h4>Área Construída</h4>
+                            <p>160m²</p>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-bed"></i>
+                            <h4>Dormitórios</h4>
+                            <p>3 amplos (1 suíte)</p>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-car"></i>
+                            <h4>Garagem</h4>
+                            <p>2 vagas cobertas</p>
+                        </div>
+                    </div>
+
+                    <h3>🏠 Características Principais</h3>
+                    <ul class="features-list">
+                        <li>Sala e copa integradas</li>
+                        <li>Lavanderia</li>
+                        <li>Área gourmet com churrasqueira</li>
+                        <li>Piscina aquecida</li>
+                        <li>Acabamento em porcelanato</li>
+                        <li>Aquecedor solar</li>
+                        <li>Armários planejados na cozinha e banheiros</li>
+                        <li>Iluminação 100% LED</li>
+                    </ul>
+
+                    <h3>📲 Tecnologia e Conforto</h3>
+                    <ul class="features-list">
+                        <li>Casa automatizada, controlada por tablet e Alexa</li>
+                        <li>Som ambiente integrado</li>
+                        <li>Fechadura inteligente na porta da sala</li>
+                        <li>Wi-Fi mesh com sinal forte em toda a casa</li>
+                    </ul>
+
+                    <h3>💰 Condições de Venda</h3>
+                    <p><strong>Valor:</strong> R$ 930.000</p>
+                    <p><strong>Aceita troca por terreno ou carro 🚘🏞️</strong></p>
+                </div>
+
+                <div class="sidebar">
+                    <div class="contact-card">
+                        <h3>Interessado?</h3>
+                        <p>Entre em contato conosco para agendar uma visita ou solicitar mais informações.</p>
+                        <a href="https://wa.me/5516992104013?text=Olá! Gostaria de saber mais sobre a casa no Residencial Gramados" class="whatsapp-button" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Falar no WhatsApp
+                        </a>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>📞 Contato</h3>
+                        <p><strong>WhatsApp:</strong> <a href="https://wa.me/5516992104013" target="_blank">+55 16 99210-4013</a></p>
+                        <p><strong>Localização:</strong> Franca-SP</p>
+                    </div>
+
+                    <div class="map-container">
+                        <div style="text-align: center;">
+                            <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                            <p>Residencial Gramados</p>
+                            <p>Franca - São Paulo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery">
+        <div class="container">
+            <h2 style="text-align: center; color: #1e3c72; margin-bottom: 2rem;">📸 Galeria de Fotos</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-image"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Brasil Imperial - Construtora e Incorporadora</p>
+        <p>Requinte em cada detalhe 🏡</p>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 60, 114, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+            }
+        });
+    </script>
+</body>
+</html> 

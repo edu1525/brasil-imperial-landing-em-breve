@@ -2,39 +2,1848 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brasil Imperial - Em Breve</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Brasil Imperial - Construtora e Incorporadora | Franca-SP</title>
+    <meta name="description" content="Construtora e incorporadora Brasil Imperial. Requinte em cada detalhe. Imóveis exclusivos em Franca-SP.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: white;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: white;
+            padding: 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 2px solid #ffd700;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .logo {
+            max-height: 90px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .cta-header {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a1a;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-header:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            background: linear-gradient(45deg, #ffed4e, #ffd700);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 90px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(45deg, #ffed4e, #ffd700);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .about {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .about-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .about-grid-mission {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .about-card-mission {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            background: linear-gradient(145deg, #f8f9fa, #ffffff);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .about-card-mission:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-card-icon {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-card-icon i {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            padding: 1rem;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+        }
+
+        .about-card-mission h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .about-card-mission p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .about-stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 3rem;
+            border-radius: 15px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stat-icon i {
+            font-size: 2.5rem;
+            color: #ffd700;
+        }
+
+        .stat-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .feature i {
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+
+        .about-image {
             text-align: center;
         }
-        .logo {
-            max-width: 700px;
-            width: 95%;
-            margin-bottom: 20px;
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        .message {
-            font-size: 24px;
+
+        .sustainability {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .sustainability-content {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .sustainability-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            position: relative;
+        }
+
+        .sustainability-text h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #28a745, #20c997);
+            border-radius: 2px;
+        }
+
+        .sustainability-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sustainability-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sustainability-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .sustainability-item:hover {
+            transform: translateY(-5px);
+            border-color: #28a745;
+            box-shadow: 0 10px 30px rgba(40, 167, 69, 0.2);
+        }
+
+        .sustainability-item i {
+            font-size: 2.5rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .sustainability-item h4 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .sustainability-item p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .properties {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffd700;
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .property-image {
+            height: 250px;
+            background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffd700;
+            font-size: 3rem;
+        }
+
+        .property-content {
+            padding: 2rem;
+        }
+
+        .property-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .property-location {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .property-price {
+            font-size: 1.8rem;
             font-weight: bold;
-            color: darkslategrey;
-            margin-top: 100px;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .property-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .property-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .property-feature i {
+            color: #ffd700;
+        }
+
+        .property-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid #ffd700;
+        }
+
+        .property-button:hover {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a1a;
+            transform: translateY(-2px);
+        }
+
+        .contact {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            color: #ffd700;
+            font-size: 1.5rem;
+            width: 30px;
+        }
+
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #ffd700;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-button:hover {
+            background: linear-gradient(45deg, #ffed4e, #ffd700);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .contact-map {
+            height: 400px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-top: 2px solid #ffd700;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 2px solid #ffd700;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .header-content {
+                padding: 0 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .sustainability-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-grid-mission {
+                grid-template-columns: 1fr;
+            }
+            .about-stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 2rem;
+            }
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.5rem 0;
+            }
+            
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+                padding: 0.5rem 1rem;
+            }
+            
+            .logo {
+                max-height: 70px;
+            }
+            
+            .desktop-nav {
+                display: none !important;
+            }
+            
+            .hamburger-menu {
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                position: relative !important;
+                z-index: 1001 !important;
+            }
+            
+            .hamburger-menu span {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                background: #ffd700 !important;
+                width: 25px !important;
+                height: 3px !important;
+                margin: 3px 0 !important;
+                border-radius: 2px !important;
+            }
+            
+            .hero {
+                margin-top: 90px;
+                height: 80vh;
+                padding: 2rem 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .about {
+                padding: 3rem 1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
+            
+            .about-text p {
+                font-size: 1rem;
+            }
+            
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .feature {
+                font-size: 0.9rem;
+            }
+            
+            .sustainability {
+                padding: 3rem 1rem;
+            }
+            
+            .sustainability-text h3 {
+                font-size: 1.5rem;
+            }
+            
+            .sustainability-text p {
+                font-size: 1rem;
+            }
+            
+            .sustainability-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .sustainability-item {
+                padding: 1.5rem;
+            }
+            
+            .sustainability-item i {
+                font-size: 2rem;
+            }
+            
+            .sustainability-item h4 {
+                font-size: 1.1rem;
+            }
+            
+            .sustainability-item p {
+                font-size: 0.9rem;
+            }
+            
+            .properties {
+                padding: 3rem 1rem;
+            }
+            
+            .properties-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .property-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .property-content {
+                padding: 1.5rem;
+            }
+            
+            .property-title {
+                font-size: 1.3rem;
+            }
+            
+            .property-price {
+                font-size: 1.5rem;
+            }
+            
+            .property-features {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            
+            .property-feature {
+                font-size: 0.85rem;
+            }
+            
+            .contact {
+                padding: 3rem 1rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .contact-info h3 {
+                font-size: 1.5rem;
+            }
+            
+            .contact-item {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .contact-item i {
+                font-size: 1.3rem;
+                width: 25px;
+            }
+            
+            .whatsapp-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .contact-map {
+                height: 300px;
+            }
+            
+            .contact-map div {
+                text-align: center;
+            }
+            
+            .contact-map i {
+                font-size: 2rem !important;
+            }
+            
+            .contact-map p {
+                font-size: 1rem;
+                margin: 0.5rem 0;
+            }
+            
+            .modal-content {
+                margin: 10% auto;
+                padding: 1.5rem;
+                width: 95%;
+            }
+            
+            .modal-content h2 {
+                font-size: 1.3rem;
+            }
+            
+            .modal-content h3 {
+                font-size: 1.1rem;
+            }
+            
+            .modal-content p, .modal-content li {
+                font-size: 0.9rem;
+            }
+            
+            .footer {
+                padding: 1.5rem 0.5rem;
+            }
+            
+            .footer p {
+                font-size: 0.9rem;
+            }
+            
+            .about-stats-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .stat-item {
+                justify-content: center;
+                text-align: center;
+            }
+            .stat-content {
+                align-items: center;
+            }
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 0.5rem;
+            }
+            
+            .logo {
+                max-height: 60px;
+            }
+            
+            .hamburger-menu span {
+                width: 22px;
+                height: 2px;
+            }
+            
+            .mobile-menu-content {
+                width: 280px;
+                padding: 1.5rem;
+            }
+            
+            .mobile-nav-link {
+                font-size: 1.1rem;
+                padding: 0.8rem;
+            }
+            
+            .mobile-whatsapp {
+                font-size: 1rem;
+                padding: 0.8rem 1.2rem;
+            }
+            
+            .hero {
+                margin-top: 80px;
+                height: 70vh;
+                padding: 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .about {
+                padding: 2rem 0.5rem;
+            }
+            
+            .about-content {
+                gap: 1.5rem;
+            }
+            
+            .about-text h3 {
+                font-size: 1.3rem;
+            }
+            
+            .about-text p {
+                font-size: 0.95rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            
+            .feature {
+                font-size: 0.85rem;
+            }
+            
+            .sustainability {
+                padding: 2rem 0.5rem;
+            }
+            
+            .sustainability-text h3 {
+                font-size: 1.3rem;
+            }
+            
+            .sustainability-text p {
+                font-size: 0.95rem;
+            }
+            
+            .sustainability-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .sustainability-item {
+                padding: 1.2rem;
+            }
+            
+            .sustainability-item i {
+                font-size: 1.8rem;
+            }
+            
+            .sustainability-item h4 {
+                font-size: 1rem;
+            }
+            
+            .sustainability-item p {
+                font-size: 0.85rem;
+            }
+            
+            .properties {
+                padding: 2rem 0.5rem;
+            }
+            
+            .properties-grid {
+                gap: 1.5rem;
+            }
+            
+            .property-card {
+                margin: 0;
+            }
+            
+            .property-content {
+                padding: 1.2rem;
+            }
+            
+            .property-title {
+                font-size: 1.2rem;
+            }
+            
+            .property-price {
+                font-size: 1.3rem;
+            }
+            
+            .property-features {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+            }
+            
+            .property-feature {
+                font-size: 0.8rem;
+            }
+            
+            .contact {
+                padding: 2rem 0.5rem;
+            }
+            
+            .contact-content {
+                gap: 1.5rem;
+            }
+            
+            .contact-info h3 {
+                font-size: 1.3rem;
+            }
+            
+            .contact-item {
+                font-size: 0.9rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .contact-item i {
+                font-size: 1.2rem;
+                width: 20px;
+            }
+            
+            .whatsapp-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .contact-map {
+                height: 250px;
+            }
+            
+            .contact-map div {
+                text-align: center;
+            }
+            
+            .contact-map i {
+                font-size: 2rem !important;
+            }
+            
+            .contact-map p {
+                font-size: 1rem;
+                margin: 0.5rem 0;
+            }
+            
+            .modal-content {
+                margin: 5% auto;
+                padding: 1rem;
+                width: 98%;
+                max-height: 90vh;
+            }
+            
+            .modal-content h2 {
+                font-size: 1.3rem;
+            }
+            
+            .modal-content h3 {
+                font-size: 1.1rem;
+            }
+            
+            .modal-content p, .modal-content li {
+                font-size: 0.9rem;
+            }
+            
+            .footer {
+                padding: 1.5rem 0.5rem;
+            }
+            
+            .footer p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-content h1 {
+                font-size: 1.6rem;
+            }
+            
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .about-text h3,
+            .sustainability-text h3,
+            .contact-info h3 {
+                font-size: 1.2rem;
+            }
+            
+            .property-title {
+                font-size: 1.1rem;
+            }
+            
+            .property-price {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Melhorar experiência touch */
+        button, a, .nav-link, .cta-header, .cta-button, .property-button, .whatsapp-button {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        /* Menu Hambúrguer */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+
+        .hamburger-menu span {
+            width: 25px;
+            height: 3px;
+            background: #ffd700;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+            display: block;
+        }
+
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Menu Mobile */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #ffd700;
+        }
+
+        .mobile-logo {
+            max-height: 60px;
+        }
+
+        .close-menu {
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .close-menu span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #ffd700;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .close-menu span:first-child {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .close-menu span:last-child {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .mobile-nav-link:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            border-color: #ffd700;
+            transform: translateX(10px);
+        }
+
+        .mobile-whatsapp {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            margin-top: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .mobile-whatsapp:hover {
+            background: linear-gradient(45deg, #ffed4e, #ffd700);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .mobile-whatsapp i {
+            margin-right: 0.5rem;
+        }
+
+        /* Forçar exibição do menu hambúrguer em mobile */
+        @media (max-width: 768px) {
+            #hamburger-menu {
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            #hamburger-menu span {
+                display: block !important;
+                width: 25px !important;
+                height: 3px !important;
+                background: #ffd700 !important;
+                margin: 3px 0 !important;
+                border-radius: 2px !important;
+            }
+        }
+
+        /* Technology Section */
+        .technology {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #10101e 0%, #1a1a2e 100%);
+            color: white;
+        }
+        .technology .section-title {
+            color: white;
+            text-shadow: 0 0 15px rgba(17, 137, 255, 0.4);
+        }
+        .technology .section-title::after {
+            background: linear-gradient(45deg, #1189ff, #6f42c1);
+        }
+        .technology-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #b0c4de;
+            margin-bottom: 3.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: -1.5rem;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .tech-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .tech-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        .tech-card-icon i {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background-image: linear-gradient(45deg, #1189ff, #6f42c1, #d629b3);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .tech-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .tech-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #b0c4de;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="logo.png" alt="Logo da Construtora Brasil Imperial" class="logo">
-        <p class="message">SITE EM BREVE</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <img src="logo_white.svg" alt="Brasil Imperial" class="logo">
+            
+            <!-- Menu Desktop -->
+            <nav class="header-nav desktop-nav">
+                <a href="#about" class="nav-link">Sobre</a>
+                <a href="#sustainability" class="nav-link">Sustentabilidade</a>
+                <a href="#properties" class="nav-link">Imóveis</a>
+                <a href="#technology" class="nav-link">Tecnologia</a>
+                <a href="#contact" class="nav-link">Contato</a>
+                <a href="https://wa.me/5516992104013" class="cta-header" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+            </nav>
+            
+            <!-- Botão Hambúrguer -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <img src="logo_white.svg" alt="Brasil Imperial" class="mobile-logo">
+                <div class="close-menu" id="close-menu">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <nav class="mobile-nav">
+                <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()">Sobre</a>
+                <a href="#sustainability" class="mobile-nav-link" onclick="closeMobileMenu()">Sustentabilidade</a>
+                <a href="#properties" class="mobile-nav-link" onclick="closeMobileMenu()">Imóveis</a>
+                <a href="#technology" class="mobile-nav-link" onclick="closeMobileMenu()">Tecnologia</a>
+                <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Contato</a>
+                <a href="https://wa.me/5516992104013" class="mobile-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Falar no WhatsApp
+                </a>
+            </nav>
+        </div>
     </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Requinte em Cada Detalhe</h1>
+            <p>Descubra nossos imóveis exclusivos</p>
+            <a href="#properties" class="cta-button">Ver Imóveis</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Sobre a Brasil Imperial</h2>
+            <p class="about-subtitle">Combinando tradição e inovação para construir o futuro.</p>
+
+            <div class="about-grid-mission">
+                <div class="about-card-mission">
+                    <div class="about-card-icon"><i class="fas fa-bullseye"></i></div>
+                    <h4>Nossa Missão</h4>
+                    <p>Construir imóveis que transcendam o comum, oferecendo qualidade superior, design inovador e acabamentos refinados que elevam o padrão de vida de nossos clientes.</p>
+                </div>
+                <div class="about-card-mission">
+                    <div class="about-card-icon"><i class="fas fa-eye"></i></div>
+                    <h4>Nossa Visão</h4>
+                    <p>Ser reconhecida como a construtora de referência em Franca-SP, líder em inovação e qualidade, criando projetos que se tornam ícones arquitetônicos da região.</p>
+                </div>
+                <div class="about-card-mission">
+                    <div class="about-card-icon"><i class="fas fa-heart"></i></div>
+                    <h4>Nossos Valores</h4>
+                    <p>Excelência, transparência, inovação e compromisso com o cliente. Acreditamos que cada projeto é único e merece nossa dedicação total.</p>
+                </div>
+            </div>
+
+            <div class="about-stats-container">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-building"></i></div>
+                    <div class="stat-content">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Projetos Entregues</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-content">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Famílias Satisfeitas</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-award"></i></div>
+                    <div class="stat-content">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Anos de Experiência</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-star"></i></div>
+                    <div class="stat-content">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Compromisso</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section class="sustainability" id="sustainability">
+        <div class="container">
+            <h2 class="section-title">Compromisso com a Sustentabilidade</h2>
+            <div class="sustainability-content">
+                <div class="sustainability-text">
+                    <h3>🌱 Nossa Responsabilidade Social e Ambiental</h3>
+                    <p>A Brasil Imperial acredita que o futuro da construção está diretamente ligado à preservação do meio ambiente e ao bem-estar da sociedade. Por isso, desenvolvemos nossas obras com foco em práticas sustentáveis e responsabilidade social.</p>
+                </div>
+            </div>
+            
+            <div class="sustainability-grid">
+                <div class="sustainability-item">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Materiais Sustentáveis</h4>
+                    <p>Utilizamos materiais ecologicamente responsáveis e de baixo impacto ambiental em nossos projetos.</p>
+                </div>
+                <div class="sustainability-item">
+                    <i class="fas fa-solar-panel"></i>
+                    <h4>Energia Renovável</h4>
+                    <p>Implementamos sistemas de energia solar e tecnologias que reduzem o consumo energético.</p>
+                </div>
+                <div class="sustainability-item">
+                    <i class="fas fa-recycle"></i>
+                    <h4>Gestão de Resíduos</h4>
+                    <p>Adotamos práticas de reciclagem e reutilização de materiais durante toda a obra.</p>
+                </div>
+                <div class="sustainability-item">
+                    <i class="fas fa-handshake"></i>
+                    <h4>Responsabilidade Social</h4>
+                    <p>Contribuímos para o desenvolvimento local através de parcerias e projetos comunitários.</p>
+                </div>
+                <div class="sustainability-item">
+                    <i class="fas fa-seedling"></i>
+                    <h4>Construção Sustentável</h4>
+                    <p>Comprometidos com o futuro através de práticas construtivas inovadoras e eco-friendly.</p>
+                </div>
+                <div class="sustainability-item">
+                    <i class="fas fa-water"></i>
+                    <h4>Eficiência Hídrica</h4>
+                    <p>Sistemas de captação de água da chuva e tecnologias que reduzem o consumo de água.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="properties" id="properties">
+        <div class="container">
+            <h2 class="section-title">Nossos Imóveis</h2>
+            <div class="properties-grid">
+                <!-- Casa Residencial Gramados -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Casa no Residencial Gramados</h3>
+                        <p class="property-location">📍 Residencial Gramados, Franca-SP</p>
+                        <div class="property-price">R$ 930.000</div>
+                        
+                        <div class="property-features">
+                            <div class="property-feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>220m² terreno</span>
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>3 dormitórios</span>
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-swimming-pool"></i>
+                                <span>Piscina aquecida</span>
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-car"></i>
+                                <span>2 vagas</span>
+                            </div>
+                        </div>
+                        
+                        <a href="casa-gramados.html" class="property-button">Ver Detalhes</a>
+                    </div>
+                </div>
+
+                <!-- Apartamento Jardim Botânico -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Apartamento Jardim Botânico</h3>
+                        <p class="property-location">📍 Jardim Botânico, Franca-SP</p>
+                        <div class="property-price">R$ 350.000</div>
+                        
+                        <div class="property-features">
+                            <div class="property-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>3 dormitórios</span>
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-fire"></i>
+                                <span>Área gourmet</span>
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-clock"></i>
+                                <span>Entrega em 4 meses</span>
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-leaf"></i>
+                                <span>Bairro valorizado</span>
+                            </div>
+                        </div>
+                        
+                        <a href="apartamento-botanico.html" class="property-button">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
+        <div class="container">
+            <h2 class="section-title">Tecnologia e Automação</h2>
+            <p class="technology-subtitle">Nossos imóveis são projetados para a era da informação, integrando inteligência artificial e automação para uma vida mais conectada e eficiente.</p>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-card-icon"><i class="fas fa-robot"></i></div>
+                    <h4>Automação Residencial</h4>
+                    <p>Controle iluminação, climatização e dispositivos com um toque ou por comando de voz.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon"><i class="fas fa-brain"></i></div>
+                    <h4>Inteligência Artificial</h4>
+                    <p>Sistemas que aprendem suas rotinas para otimizar o consumo de energia e aumentar o conforto.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Segurança Avançada</h4>
+                    <p>Fechaduras inteligentes, câmeras com IA e monitoramento para sua total tranquilidade.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon"><i class="fas fa-wifi"></i></div>
+                    <h4>Conectividade Total</h4>
+                    <p>Infraestrutura de rede de alta velocidade e Wi-Fi mesh para garantir sinal forte em todos os cômodos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Fale Conosco</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Franca-SP</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/5516992104013" target="_blank">+55 16 99210-4013</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:contato@construtorabrasilimperial.com.br">contato@construtorabrasilimperial.com.br</a>
+                    </div>
+                    
+                    <a href="https://wa.me/5516992104013" class="whatsapp-button" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        Falar no WhatsApp
+                    </a>
+                </div>
+                <div class="contact-map">
+                    <div>
+                        <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                        <p>Franca - São Paulo</p>
+                        <p>Região de excelente localização</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Brasil Imperial - Construtora e Incorporadora</p>
+        <p>Requinte em cada detalhe 🏡</p>
+    </footer>
+
+    <!-- Modal Casa Gramados -->
+    <div id="modal-casa-gramados" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('casa-gramados')">&times;</span>
+            <h2>🏡 Casa Incrível no Residencial Gramados</h2>
+            <p><strong>Localização:</strong> Residencial Gramados, Franca-SP - Pertinho da Av. São Vicente e do novo Hospital Estadual</p>
+            
+            <h3>📐 Detalhes do Imóvel:</h3>
+            <ul>
+                <li>Terreno com 220m² (10x22)</li>
+                <li>160m² de área construída</li>
+                <li>3 dormitórios amplos, sendo 1 suíte</li>
+                <li>Sala e copa integradas</li>
+                <li>Lavanderia</li>
+                <li>Área gourmet com churrasqueira</li>
+                <li>Piscina aquecida</li>
+                <li>Garagem coberta para 2 carros</li>
+                <li>Acabamento em porcelanato</li>
+                <li>Aquecedor solar</li>
+                <li>Armários planejados na cozinha e banheiros</li>
+                <li>Iluminação 100% LED</li>
+            </ul>
+
+            <h3>📲 Tecnologia e Conforto:</h3>
+            <ul>
+                <li>Casa automatizada, controlada por tablet e Alexa</li>
+                <li>Som ambiente integrado</li>
+                <li>Fechadura inteligente na porta da sala</li>
+                <li>Wi-Fi mesh com sinal forte em toda a casa</li>
+            </ul>
+
+            <h3>💰 Valor: R$ 930.000</h3>
+            <p><strong>Aceita troca por terreno ou carro 🚘🏞️</strong></p>
+            
+            <a href="https://wa.me/5516992104013?text=Olá! Gostaria de saber mais sobre a casa no Residencial Gramados" class="whatsapp-button" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Solicitar Informações
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal Apartamento Botânico -->
+    <div id="modal-apartamento-botanico" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('apartamento-botanico')">&times;</span>
+            <h2>🏡 Apartamento dos Sonhos no Jardim Botânico</h2>
+            <p><strong>Localização:</strong> Jardim Botânico, Franca-SP - Um dos bairros mais valorizados da cidade</p>
+            
+            <h3>✨ Características:</h3>
+            <ul>
+                <li>3 dormitórios (sendo 1 suíte)</li>
+                <li>Sala ampla integrada com copa e cozinha</li>
+                <li>Lavanderia prática e funcional</li>
+                <li>Área gourmet com sacada e churrasqueira 🔥</li>
+                <li>Localizado em um dos bairros mais valorizados da cidade</li>
+                <li>Perfeito para quem busca conforto e qualidade de vida</li>
+            </ul>
+
+            <h3>💰 Por apenas R$ 350 mil!</h3>
+            <p><strong>🚧 Entrega garantida em 4 meses!</strong></p>
+            
+            <a href="https://wa.me/5516992104013?text=Olá! Gostaria de saber mais sobre o apartamento no Jardim Botânico" class="whatsapp-button" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Agendar Visita
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Modal functions
+        function openModal(propertyId) {
+            document.getElementById(`modal-${propertyId}`).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(propertyId) {
+            document.getElementById(`modal-${propertyId}`).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 60, 114, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+            }
+        });
+
+        // Menu Hambúrguer
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            hamburgerMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            hamburgerMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        hamburgerMenu.addEventListener('click', openMobileMenu);
+        closeMenu.addEventListener('click', closeMobileMenu);
+
+        // Fechar menu ao clicar fora
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+                closeMobileMenu();
+            }
+        });
+
+        // Fechar menu ao pressionar ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    </script>
 </body>
-</html>
+</html> 
