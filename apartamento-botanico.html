@@ -336,6 +336,46 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Botão Voltar ao Topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a1a;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: linear-gradient(45deg, #ffed4e, #ffd700);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .back-to-top i {
+            font-size: 1.2rem;
+        }
+
         @media (max-width: 768px) {
             .details-grid {
                 grid-template-columns: 1fr;
@@ -357,6 +397,18 @@
             .sidebar {
                 position: static;
             }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+
+            .back-to-top i {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -368,7 +420,9 @@
                 <i class="fas fa-arrow-left"></i>
                 Voltar
             </a>
-            <img src="logo_white.svg" alt="Brasil Imperial" class="logo">
+            <a href="index.html">
+                <img src="logo_white.svg" alt="Brasil Imperial" class="logo">
+            </a>
             <div></div>
         </div>
     </header>
@@ -519,6 +573,11 @@
         <p>Requinte em cada detalhe 🏡</p>
     </footer>
 
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="back-to-top" title="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <script>
         // Header scroll effect
         window.addEventListener('scroll', function() {
@@ -528,6 +587,26 @@
             } else {
                 header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
             }
+        });
+
+        // Botão Voltar ao Topo
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        // Mostrar/ocultar botão baseado no scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        // Scroll suave ao clicar no botão
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>

@@ -13,7 +13,9 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <img src="logo_white.svg" alt="Brasil Imperial" class="logo">
+            <a href="index.html">
+                <img src="logo_white.svg" alt="Brasil Imperial" class="logo">
+            </a>
             
             <!-- Menu Desktop -->
             <nav class="header-nav desktop-nav">
@@ -41,7 +43,9 @@
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu-content">
             <div class="mobile-menu-header">
-                <img src="logo_white.svg" alt="Brasil Imperial" class="mobile-logo">
+                <a href="index.html">
+                    <img src="logo_white.svg" alt="Brasil Imperial" class="mobile-logo">
+                </a>
                 <div class="close-menu" id="close-menu">
                     <span></span>
                     <span></span>
@@ -325,6 +329,11 @@
         <p>Requinte em cada detalhe 🏡</p>
     </footer>
 
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="back-to-top" title="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <!-- Modal Casa Gramados -->
     <div id="modal-casa-gramados" class="modal">
         <div class="modal-content">
@@ -472,6 +481,26 @@
             if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
                 closeMobileMenu();
             }
+        });
+
+        // Botão Voltar ao Topo
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        // Mostrar/ocultar botão baseado no scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        // Scroll suave ao clicar no botão
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
