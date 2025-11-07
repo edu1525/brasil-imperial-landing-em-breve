@@ -91,7 +91,7 @@
         ],
         "offers": {
             "@type": "Offer",
-            "price": "930000",
+            "price": "890000",
             "priceCurrency": "BRL",
             "availability": "https://schema.org/InStock",
             "seller": {
@@ -169,7 +169,7 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/gramados/20250607_145920.jpg');
             background-size: cover;
             background-position: center;
             height: 60vh;
@@ -316,16 +316,101 @@
             background: #e9ecef;
             height: 250px;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6c757d;
-            font-size: 2rem;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s ease;
         }
 
         .gallery-item:hover {
             transform: scale(1.05);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: #ffd700;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 215, 0, 0.5);
+            color: #ffd700;
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
         }
 
         .sidebar {
@@ -499,8 +584,8 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Casa no Residencial Gramados</h1>
-            <p>Localização estratégica, próxima À Av. São Vicente e ao novo Hospital Estadual</p>
-            <div class="price-tag">R$ 930.000</div>
+            <p>Localização estratégica, próxima à Av. São Vicente e ao novo Hospital Estadual</p>
+            <div class="price-tag">R$ 890.000</div>
         </div>
     </section>
 
@@ -561,7 +646,7 @@
                     </ul>
 
                     <h3>💰 Condições de Venda</h3>
-                    <p><strong>Valor:</strong> R$ 930.000</p>
+                    <p><strong>Valor:</strong> R$ 890.000</p>
                     <p><strong>Aceita troca por terreno ou carro 🚘🏞️</strong></p>
                 </div>
 
@@ -601,26 +686,102 @@
             <h2 style="text-align: center; color: #1e3c72; margin-bottom: 2rem;">📸 Galeria de Fotos</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <i class="fas fa-image"></i>
+                    <img src="images/gramados/20250607_141553.jpg" alt="Casa Residencial Gramados - Foto 1" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <i class="fas fa-image"></i>
+                    <img src="images/gramados/20250607_141711.jpg" alt="Casa Residencial Gramados - Foto 2" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <i class="fas fa-image"></i>
+                    <img src="images/gramados/20250607_141753.jpg" alt="Casa Residencial Gramados - Foto 3" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <i class="fas fa-image"></i>
+                    <img src="images/gramados/20250607_141808.jpg" alt="Casa Residencial Gramados - Foto 4" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <i class="fas fa-image"></i>
+                    <img src="images/gramados/20250607_141831.jpg" alt="Casa Residencial Gramados - Foto 5" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <i class="fas fa-image"></i>
+                    <img src="images/gramados/20250607_141909.jpg" alt="Casa Residencial Gramados - Foto 6" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_141950.jpg" alt="Casa Residencial Gramados - Foto 7" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142010.jpg" alt="Casa Residencial Gramados - Foto 8" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142101(0).jpg" alt="Casa Residencial Gramados - Foto 9" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142138.jpg" alt="Casa Residencial Gramados - Foto 10" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142224.jpg" alt="Casa Residencial Gramados - Foto 11" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142248.jpg" alt="Casa Residencial Gramados - Foto 12" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142320.jpg" alt="Casa Residencial Gramados - Foto 13" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142412.jpg" alt="Casa Residencial Gramados - Foto 14" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142439.jpg" alt="Casa Residencial Gramados - Foto 15" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142510.jpg" alt="Casa Residencial Gramados - Foto 16" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142538.jpg" alt="Casa Residencial Gramados - Foto 17" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142555.jpg" alt="Casa Residencial Gramados - Foto 18" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142635.jpg" alt="Casa Residencial Gramados - Foto 19" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142656.jpg" alt="Casa Residencial Gramados - Foto 20" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142719.jpg" alt="Casa Residencial Gramados - Foto 21" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142731.jpg" alt="Casa Residencial Gramados - Foto 22" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142804.jpg" alt="Casa Residencial Gramados - Foto 23" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142821.jpg" alt="Casa Residencial Gramados - Foto 24" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142911.jpg" alt="Casa Residencial Gramados - Foto 25" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_142938.jpg" alt="Casa Residencial Gramados - Foto 26" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_145920.jpg" alt="Casa Residencial Gramados - Foto 27" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gramados/20250607_150000.jpg" alt="Casa Residencial Gramados - Foto 28" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="lightbox-close">&times;</span>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</button>
+            <img id="lightbox-image" src="" alt="Imagem ampliada">
+            <button class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</button>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -662,6 +823,72 @@
                 top: 0,
                 behavior: 'smooth'
             });
+        });
+
+        // Lightbox Gallery
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        let currentImageIndex = 0;
+
+        // Array com todas as imagens
+        const images = Array.from(galleryItems).map(img => img.src);
+
+        // Abrir lightbox ao clicar em uma imagem
+        galleryItems.forEach((img, index) => {
+            img.addEventListener('click', function() {
+                currentImageIndex = index;
+                lightboxImage.src = images[currentImageIndex];
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Fechar lightbox
+        lightboxClose.addEventListener('click', function() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Fechar ao clicar fora da imagem
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Navegação anterior
+        lightboxPrev.addEventListener('click', function(e) {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            lightboxImage.src = images[currentImageIndex];
+        });
+
+        // Navegação próxima
+        lightboxNext.addEventListener('click', function(e) {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            lightboxImage.src = images[currentImageIndex];
+        });
+
+        // Navegação com teclado
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'ArrowLeft') {
+                    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                    lightboxImage.src = images[currentImageIndex];
+                } else if (e.key === 'ArrowRight') {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    lightboxImage.src = images[currentImageIndex];
+                } else if (e.key === 'Escape') {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
         });
     </script>
 </body>
